@@ -18,3 +18,12 @@ jobs:
             Repository: ${{ github.repository }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+      - uses: actions/checkout@master
+      - name: send photo message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: send photo message
+          photo: ./fly-default#5682a3.png
+          document: ./fly-default#5682a3.png
